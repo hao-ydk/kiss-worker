@@ -1,0 +1,13 @@
+name = "kiss-worker"
+main = "src/index.js"
+compatibility_date = "2023-07-28"
+[[kv_namespaces]]
+binding = "KV"
+
+[[durable_objects.bindings]]
+name = "SYNC_OBJECT"
+class_name = "SyncObject"
+
+[exports.SyncObject]
+type = "durable-object"
+storage = "sqlite"

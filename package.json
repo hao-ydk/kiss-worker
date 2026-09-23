@@ -1,0 +1,29 @@
+{
+  "name": "kiss-worker",
+  "version": "0.0.0",
+  "author": "Gabe<yugang2002@gmail.com>",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "cloudflare": {
+    "bindings": {
+      "AUTH_VALUE": {
+        "description": "KISS-Translator 客户端使用的同步密码。请设置一个足够长的随机字符串；它不是 Cloudflare API Token。"
+      }
+    }
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "0.20.1",
+    "vitest": "4.1.10",
+    "wrangler": "4.118.0"
+  },
+  "scripts": {
+    "start": "npx wrangler dev",
+    "test": "npx vitest run",
+    "build": "npx wrangler deploy --dry-run --outdir dist",
+    "deploy": "npx wrangler deploy",
+    "secret": "npx wrangler secret put AUTH_VALUE"
+  }
+}

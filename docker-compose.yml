@@ -1,0 +1,12 @@
+services:
+  kiss-worker:
+    image: fishjar/kiss-worker
+    # build: .
+    environment:
+      PORT: 8080
+      APP_KEY: "${APP_KEY:?APP_KEY is required}"
+      APP_DATAPATH: data
+    ports:
+      - 8080:8080
+    volumes:
+      - ./data:/app/data
